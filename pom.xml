@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.lacare</groupId>
+  <artifactId>LACare_AT</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>LACare_AT</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+     <!-- <scope>test</scope> -->
+    </dependency>
+     <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-log4j12</artifactId>
+    	<version>1.7.21</version>
+    </dependency>
+     
+     
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.9.10</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.uncommons</groupId>
+      <artifactId>reportng</artifactId>
+      <version>1.1.4</version>
+      <exclusions>
+      	<exclusion>
+      		<groupId>org.testng</groupId>
+	      	<artifactId>testng</artifactId>
+      	</exclusion>
+      </exclusions>     
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>3.0</version>
+    </dependency>
+   
+    
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.5.3</version>
+      
+   <!--  scope tag value: *compile-Default value *provided- *runtime- *test-  *system -->
+    </dependency>
+
+
+    <dependency>
+    	<groupId>org.apache.poi</groupId>
+    	<artifactId>poi</artifactId>
+    	<version>3.16</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-web</artifactId>
+    	<version>4.1.0.RELEASE</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-test</artifactId>
+    	<version>4.1.0.RELEASE</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.poi</groupId>
+    	<artifactId>poi-ooxml</artifactId>
+    	<version>3.16</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.poi</groupId>
+    	<artifactId>poi-ooxml-schemas</artifactId>
+    	<version>3.16</version>
+    </dependency>
+    <dependency>
+    	<groupId>dom4j</groupId>
+    	<artifactId>dom4j</artifactId>
+    	<version>1.6.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.xmlbeans</groupId>
+    	<artifactId>xmlbeans</artifactId>
+    	<version>2.3.0</version>
+    </dependency>
+	<dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>7.0</version>
+   </dependency>
+  </dependencies>
+  
+     <build>
+	  <plugins>
+         
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
+            <configuration>
+               <source>1.8</source>
+               <target>1.8</target> 
+            </configuration>
+      	</plugin>  
+	  	     <plugin>
+		  	<groupId>org.apache.maven.plugins</groupId>
+	  		<artifactId>maven-surefire-plugin</artifactId>
+	  		<version>2.14.1</version>
+	  		<configuration>
+	  			<suiteXmlFiles>
+	  				<!-- <suiteXmlFile>src/main/resources/suites/cca-testng.xml</suiteXmlFile>-->
+            	<!--<suiteXmlFile>src/main/resources/suites/healthx1-testng.xml</suiteXmlFile>-->
+           		</suiteXmlFiles>
+           		<properties>
+    		 		<!-- Setting ReportNG listeners -->
+         			<property>
+           				<name>listener</name>
+           				<value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+         			</property>
+				</properties>
+	  		</configuration>
+	    </plugin>
+	  
+	  
+	 </plugins>
+	 
+  </build>
+  
+  <modules>
+  	<module>GUITesting</module>
+  	<module>GUITesting_CCA</module>
+  	
+  	<module>GUITesting_ProviderPortal</module>
+  </modules>
+</project>
